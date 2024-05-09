@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,15 +18,17 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class Consulta implements Serializable {
-    private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @JoinColumn(name = "paciente_id")
     @OneToOne
     private Paciente paciente;
+    @JoinColumn(name = "dentista_id")
     @OneToOne
     private Dentista dentista;
     private String observacoes;
     private File anexos;
-    private Float valor;
+    private Double valor;
+    
 }

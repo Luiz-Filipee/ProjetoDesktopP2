@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -23,12 +24,14 @@ public class Agendamento implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @JoinColumn(name = "paciente_id")
     @OneToOne
     private Paciente pacienteId;
+    @JoinColumn(name = "dentista_id")
     @OneToOne
     private Dentista dentistaId;
     private String horario;
     @Temporal(TemporalType.DATE)
-    @Column(name = "data_agendamento")
+    @JoinColumn(name = "data_agendamento")
     private Date dataAgendamento;
 }

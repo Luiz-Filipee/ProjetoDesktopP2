@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,8 +20,8 @@ public class Contato implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String email;
-    @Column(name = "numero_contato_1")
+    @JoinColumn(name = "numero_contato_1")
     private String numeroContato1;
-    @Column(name = "numero_contato_2")
+    @JoinColumn(name = "numero_contato_2")
     private String numeroContato2;
 }
