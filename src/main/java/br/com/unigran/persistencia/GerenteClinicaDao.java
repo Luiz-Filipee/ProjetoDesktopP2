@@ -1,0 +1,16 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package br.com.unigran.persistencia;
+
+/**
+ *
+ * @author user
+ */
+public abstract class GerenteClinicaDao extends Dao{
+    
+    public abstract void geraRelatorio();
+    
+    public abstract void controlarEstoque();
+}
