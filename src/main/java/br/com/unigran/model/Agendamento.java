@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import lombok.Getter;
@@ -30,14 +31,17 @@ public class Agendamento implements Serializable {
     
     @JoinColumn(name = "paciente_id")
     @ManyToOne
-    private Paciente pacienteId;
+    private Paciente paciente;
     
     @JoinColumn(name = "dentista_id")
     @ManyToOne
-    private Dentista dentistaId;
+    private Dentista dentista;
     
-    @JoinColumn(name = "dentista_id")
+    @JoinColumn(name = "recepcionista_id")
     @ManyToOne
     private Recepcionista recepcionista;
+    
+    @OneToOne(mappedBy = "agendamento")
+    private Consulta consulta;
    
 }

@@ -24,17 +24,17 @@ public class Consulta implements Serializable {
     
     @JoinColumn(name = "paciente_id")
     @ManyToOne
-    private Paciente pacienteId;
+    private Paciente paciente;
     
     @JoinColumn(name = "dentista_id")
     @ManyToOne
-    private Dentista dentistaId;
+    private Dentista dentista;
     private String observacoes;
     private File anexos;
     private Double valor;
     
     @JoinColumn(name = "agendamento_id")
     @ManyToOne
-    private Agendamento agendamneto;
+    private Agendamento agendamento;
     
 }

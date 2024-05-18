@@ -24,5 +24,5 @@ public class Recepcionista implements Serializable {
     private String nome;
     @JoinColumn(name = "login_id")
     @OneToOne
-    private Login loginId;
+    private Login login;
 }

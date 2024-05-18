@@ -37,7 +37,7 @@ public class Endereco implements Serializable {
     private Paciente paciente;
     
     @ManyToOne
-    @JoinColumn(name = "paciente_Id")
+    @JoinColumn(name = "cidade_Id")
     private Cidade cidadeEntity;
     
 }
