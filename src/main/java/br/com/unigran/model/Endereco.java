@@ -1,43 +1,43 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package br.com.unigran.model;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ *
+ * @author user
+ */
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
-public class Agendamento implements Serializable {
+public class Endereco implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String horario;
-    @Temporal(TemporalType.DATE)
-    @JoinColumn(name = "data_agendamento")
-    private Date dataAgendamento;
+    private String rua;
+    private String cidade;
+    private String estado;
     
-    @JoinColumn(name = "paciente_id")
     @ManyToOne
-    private Paciente pacienteId;
+    @JoinColumn(name = "paciente_Id")
+    private Paciente paciente;
     
-    @JoinColumn(name = "dentista_id")
     @ManyToOne
-    private Dentista dentistaId;
+    @JoinColumn(name = "paciente_Id")
+    private Cidade cidadeEntity;
     
-    @JoinColumn(name = "dentista_id")
-    @ManyToOne
-    private Recepcionista recepcionista;
-   
 }

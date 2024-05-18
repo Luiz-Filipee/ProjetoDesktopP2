@@ -2,11 +2,14 @@
 package br.com.unigran.model;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,6 +25,8 @@ public class GerenteClinica implements Serializable {
     private Long id;
     private String nome;
     @JoinColumn(name = "login_id")
-    @OneToOne
-    private Login loginId;
+    @ManyToOne
+    private Login login;
+    @OneToMany(mappedBy = "gerente")
+    private List<Material> materias;
 }

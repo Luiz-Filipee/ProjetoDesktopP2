@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,14 +21,20 @@ public class Consulta implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
     @JoinColumn(name = "paciente_id")
-    @OneToOne
-    private Paciente paciente;
+    @ManyToOne
+    private Paciente pacienteId;
+    
     @JoinColumn(name = "dentista_id")
-    @OneToOne
-    private Dentista dentista;
+    @ManyToOne
+    private Dentista dentistaId;
     private String observacoes;
     private File anexos;
     private Double valor;
+    
+    @JoinColumn(name = "agendamento_id")
+    @ManyToOne
+    private Agendamento agendamneto;
     
 }

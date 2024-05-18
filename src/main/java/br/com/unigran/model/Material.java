@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,6 +23,11 @@ public class Material implements Serializable {
     private Long id;
     private String nome;
     private int quantidade;
+    
     @Column(name = "quantiade_minima")
     private int quantidadeMinima;
+    
+    @ManyToOne
+    @JoinColumn(name = "gerente_id")
+    private GerenteClinica gerente;
 }

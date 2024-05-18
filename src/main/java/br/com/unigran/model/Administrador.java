@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,6 +21,7 @@ public class Administrador implements Serializable {
     private Long id;
     private String nome;
     @JoinColumn(name = "login_id")
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "login_Id")
     private Login loginId;
 }

@@ -6,11 +6,15 @@ package br.com.unigran.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import lombok.Getter;
@@ -31,12 +35,30 @@ public class Paciente implements Serializable {
     private Long id;
     private String nome;
     private String cpf;
+    
     @Temporal(TemporalType.DATE)
     @Column(name = "data_de_nascimento")
+    
     private Date dataNascimento;
-    private String endereco;
     private String convenios;
-    private String contato;
     private String email;
     private String responsavel;
+    
+    @ManyToOne
+    @JoinColumn(name = "contato_id")
+    private Contato contato;
+
+    @ManyToOne
+    @JoinColumn(name = "prontuario_id")
+    private Prontuario prontuario;
+
+    @OneToMany(mappedBy = "paciente")
+    private List<Consulta> consultas;
+
+    @OneToMany(mappedBy = "paciente")
+    private List<Agendamento> agendamentos;
+
+    @ManyToOne
+    @JoinColumn(name = "endereco_id")
+    private Endereco endereco;
 }
