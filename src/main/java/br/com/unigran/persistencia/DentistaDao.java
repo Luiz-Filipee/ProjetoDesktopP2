@@ -4,8 +4,14 @@
  */
 package br.com.unigran.persistencia;
 
+import br.com.unigran.model.Dentista;
+import java.util.List;
+
 /**
  *
  * @author user
  */
-public class DentistaDao extends Dao{}
+ public abstract class DentistaDao extends Dao{
+     
+    public abstract List<Dentista> listaDentistas();
+}

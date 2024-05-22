@@ -4,7 +4,9 @@
  */
 package br.com.unigran.persistencia;
 
+import br.com.unigran.model.Dentista;
 import br.com.unigran.model.Login;
+import java.util.List;
 
 /**
  *
@@ -19,6 +21,12 @@ public class AdministradorImp extends AdministradorDao{
             .setParameter("novaSenha", login.getSenha())
             .setParameter("idLogin", login.getId())
             .executeUpdate();
+    }
+
+    @Override
+    public List<Dentista> listaAdministradores() {
+       return em.createNativeQuery("SELECT * FROM Administrador")
+                .getResultList();
     }
     
 }

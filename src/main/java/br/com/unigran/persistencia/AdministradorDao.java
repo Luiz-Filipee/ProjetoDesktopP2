@@ -4,7 +4,9 @@
  */
 package br.com.unigran.persistencia;
 
+import br.com.unigran.model.Dentista;
 import br.com.unigran.model.Login;
+import java.util.List;
 
 /**
  *
@@ -13,4 +15,6 @@ import br.com.unigran.model.Login;
 public abstract class AdministradorDao extends Dao{
     
     public abstract void alteraAcesso(Login login);
+
+    public abstract List<Dentista> listaAdministradores();
 }

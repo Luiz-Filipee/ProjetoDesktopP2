@@ -1,11 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package br.com.unigran.persistencia;
 
-/**
- *
- * @author user
- */
-public class DentistaImp extends DentistaDao{  }
+import br.com.unigran.model.Dentista;
+import java.util.List;
+
+public class DentistaImp extends DentistaDao{
+
+    @Override
+    public List<Dentista> listaDentistas() {
+        return em.createNativeQuery("SELECT * FROM Dentista")
+                .getResultList();
+    }
+  }
