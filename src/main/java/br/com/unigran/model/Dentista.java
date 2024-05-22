@@ -3,6 +3,7 @@ package br.com.unigran.model;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,8 +27,10 @@ public class Dentista implements Serializable {
     private String nome;
     
     @JoinColumn(name = "login_id")
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Login login;
+    
     @OneToMany
     private List<Agendamento> agendamentos;
+   
 }

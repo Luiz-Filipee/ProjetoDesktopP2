@@ -23,5 +23,5 @@ public class Administrador implements Serializable {
     @JoinColumn(name = "login_id")
     @ManyToOne
     @JoinColumn(name = "login_Id")
-    private Login loginId;
+    private Login login;
 }

@@ -25,4 +25,6 @@ public class Login implements Serializable {
     @JoinColumn(name = "funcao_id")
     @ManyToOne
     private Funcao funcao;
+    
+    
 }

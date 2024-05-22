@@ -29,7 +29,6 @@ public class Endereco implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String rua;
-    private String cidade;
     private String estado;
     
     @ManyToOne
@@ -38,6 +37,6 @@ public class Endereco implements Serializable {
     
     @ManyToOne
     @JoinColumn(name = "cidade_Id")
-    private Cidade cidadeEntity;
+    private Cidade cidade;
     
 }

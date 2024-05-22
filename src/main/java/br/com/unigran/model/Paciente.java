@@ -38,7 +38,6 @@ public class Paciente implements Serializable {
     
     @Temporal(TemporalType.DATE)
     @Column(name = "data_de_nascimento")
-    
     private Date dataNascimento;
     private String convenios;
     private String email;
