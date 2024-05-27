@@ -5,7 +5,6 @@
 package br.com.unigran.controller;
 
 import br.com.unigran.persistencia.Dao;
-import java.util.List;
 
 /**
  *
@@ -18,7 +17,7 @@ public abstract class GenericoController<T, DTO> {
     protected abstract Dao<T> getDao();
     
     protected abstract T builderEntity(DTO dto);
-    
+        
     public void salvar(DTO dto) throws Exception {
         getDao().salvar(builderEntity(dto));
     }
@@ -30,5 +29,7 @@ public abstract class GenericoController<T, DTO> {
     public void remover(DTO dto) throws Exception{
         getDao().remove(builderEntity(dto));
     }
-   
+    
+    
+ 
 }

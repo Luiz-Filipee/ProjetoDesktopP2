@@ -35,7 +35,7 @@ public class Cidade implements Serializable {
     @JoinColumn(name = "estado_id")
     private Estado estado;
 
-    @OneToMany(mappedBy = "cidadeEntity")
+    @OneToMany(mappedBy = "cidade")
     private List<Endereco> enderecos;
     
 }

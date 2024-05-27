@@ -2,6 +2,7 @@
 package br.com.unigran.model;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,7 +28,7 @@ public class Material implements Serializable {
     @Column(name = "quantiade_minima")
     private int quantidadeMinima;
     
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "gerente_id")
     private GerenteClinica gerente;
 }

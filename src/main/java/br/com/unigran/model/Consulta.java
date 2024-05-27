@@ -3,6 +3,7 @@ package br.com.unigran.model;
 
 import java.io.File;
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,11 +24,11 @@ public class Consulta implements Serializable {
     private Long id;
     
     @JoinColumn(name = "paciente_id")
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Paciente paciente;
     
     @JoinColumn(name = "dentista_id")
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Dentista dentista;
     private String observacoes;
     private File anexos;

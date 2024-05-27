@@ -30,7 +30,7 @@ public class Dentista implements Serializable {
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Login login;
     
-    @OneToMany
+    @OneToMany()
     private List<Agendamento> agendamentos;
    
 }

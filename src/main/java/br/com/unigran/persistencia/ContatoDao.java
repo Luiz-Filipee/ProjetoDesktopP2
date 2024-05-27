@@ -8,4 +8,4 @@ package br.com.unigran.persistencia;
  *
  * @author user
  */
-public class ContatoDao extends Dao{}
+public abstract class ContatoDao extends Dao{}

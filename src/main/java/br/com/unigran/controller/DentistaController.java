@@ -12,7 +12,7 @@ import br.com.unigran.persistencia.DentistaImp;
 
 public class DentistaController extends GenericoController<Dentista, DentistaDTO>{
     
-    DentistaDao dentistaDao = new DentistaImp();
+    private final DentistaDao dentistaDao = new DentistaImp();
    
     @Override
     protected DentistaDao getDao() {

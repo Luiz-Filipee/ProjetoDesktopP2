@@ -2,24 +2,21 @@
 package br.com.unigran.controller;
 
 import br.com.unigran.DTO.AdministradorDTO;
-import br.com.unigran.DTO.DentistaDTO;
-import br.com.unigran.model.Dentista;
+import br.com.unigran.model.Administrador;
 import br.com.unigran.persistencia.AdministradorDao;
 import br.com.unigran.persistencia.AdministradorImp;
-import java.util.List;
 
-public class AdministradorController {
-    AdministradorDao administradorDao = new AdministradorImp();
+public class AdministradorController extends GenericoController<Administrador, AdministradorDTO>{
     
-    public void salvar(AdministradorDTO administradorDTO) throws Exception{
-        administradorDao.salvar(administradorDTO.builder());
+    private final AdministradorDao administradorDao = new AdministradorImp();
+        
+    @Override
+    protected AdministradorDao getDao() {
+        return administradorDao;
     }
-    
-    public void atualizar(DentistaDTO dentistaDTO) throws Exception{
-        administradorDao.atualiza(dentistaDTO.builder());
-    }
-    
-    public List<Dentista> listarAdministradores(){
-        return administradorDao.listaAdministradores();
+
+    @Override
+    protected Administrador builderEntity(AdministradorDTO dto) {
+        return dto.builder();
     }
 }

@@ -1,8 +1,10 @@
 
 package br.com.unigran.persistencia;
 
+import br.com.unigran.DTO.ConsultaDTO;
 import br.com.unigran.model.Agendamento;
 import br.com.unigran.model.Consulta;
+import java.util.List;
 
 public class ConsultaImp extends ConsultaDao{
 
@@ -27,6 +29,12 @@ public class ConsultaImp extends ConsultaDao{
                 .setParameter("anexos", consulta.getAnexos())
                 .setParameter("valor", consulta.getValor())
                 .executeUpdate();
+    }
+
+    @Override
+    public List<ConsultaDTO> listar() {
+        return em.createNativeQuery("SELECT * FROM Consulta")
+                .getResultList();
     }
 
     
