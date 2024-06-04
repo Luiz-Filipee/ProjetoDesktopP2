@@ -2,6 +2,7 @@
 package br.com.unigran.controller;
 
 import br.com.unigran.DTO.AgendamentoDTO;
+import br.com.unigran.DTO.PacienteDTO;
 import br.com.unigran.model.Agendamento;
 import br.com.unigran.persistencia.AgendamentoDao;
 import br.com.unigran.persistencia.AgendamentoImp;
@@ -35,6 +36,10 @@ public class AgendamentoController extends GenericoController<Agendamento, Agend
     @Override
     public List getListaDados() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
+    public AgendamentoDTO buscaPorNome(Long id) {
+        return agendamentoDao.buscaPorNome(id);
     }
     
 }

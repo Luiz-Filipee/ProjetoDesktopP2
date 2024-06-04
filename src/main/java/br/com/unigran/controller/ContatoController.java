@@ -43,4 +43,8 @@ public class ContatoController extends GenericoController<Contato, ContatoDTO>{
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
+    public ContatoDTO buscaPorEmail(String email){
+        return contatoDao.buscaPorEmail(email);
+    }
+    
 }
