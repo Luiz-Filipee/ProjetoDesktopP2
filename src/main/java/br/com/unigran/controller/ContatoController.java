@@ -8,6 +8,7 @@ import br.com.unigran.DTO.ContatoDTO;
 import br.com.unigran.model.Contato;
 import br.com.unigran.persistencia.ContatoDao;
 import br.com.unigran.persistencia.ContatoImp;
+import java.util.List;
 
 /**
  *
@@ -25,6 +26,21 @@ public class ContatoController extends GenericoController<Contato, ContatoDTO>{
     @Override
     protected Contato builderEntity(ContatoDTO dto) {
         return dto.builder();
+    }
+
+    @Override
+    public String[] getTitulosColunas() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public Object[] getDados(ContatoDTO dto) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public List getListaDados() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }

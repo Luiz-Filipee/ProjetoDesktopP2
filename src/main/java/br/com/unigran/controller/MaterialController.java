@@ -8,6 +8,7 @@ import br.com.unigran.DTO.MaterialDTO;
 import br.com.unigran.model.Material;
 import br.com.unigran.persistencia.MaterialDao;
 import br.com.unigran.persistencia.MaterialImp;
+import java.util.List;
 
 /**
  *
@@ -25,6 +26,21 @@ public class MaterialController extends GenericoController<Material, MaterialDTO
     @Override
     protected Material builderEntity(MaterialDTO dto) {
         return dto.builder();
+    }
+
+    @Override
+    public String[] getTitulosColunas() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public Object[] getDados(MaterialDTO dto) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public List getListaDados() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }

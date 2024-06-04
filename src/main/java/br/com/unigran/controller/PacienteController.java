@@ -5,6 +5,7 @@ import br.com.unigran.DTO.PacienteDTO;
 import br.com.unigran.model.Paciente;
 import br.com.unigran.persistencia.PacienteDao;
 import br.com.unigran.persistencia.PacienteImp;
+import java.util.List;
 
 public class PacienteController extends GenericoController<Paciente, PacienteDTO>{
 
@@ -24,4 +25,25 @@ public class PacienteController extends GenericoController<Paciente, PacienteDTO
         pacienteDao.remove((dto).builder());
     }
     
+    @Override
+    public String[] getTitulosColunas() {
+        return new String[]{"id", "Nome"};
+    }
+    
+    @Override
+    public Object[] getDados(PacienteDTO o) {
+        PacienteDTO dto = (PacienteDTO) o;
+        return new Object[]{dto.nome, dto.cpf, dto.email, dto.contato};
+    }
+    
+    @Override
+    public List getListaDados() {
+        List<Paciente> dados = pacienteDao.listaPacientes();
+        PacienteDTO pacienteDTO = new PacienteDTO();
+        return pacienteDTO.getListaDados(dados);
+    }
+
+    public PacienteDTO buscaPorNome(String text) {
+        return pacienteDao.buscaPaciente(text);
+    }
 }

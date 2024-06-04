@@ -8,6 +8,7 @@ import br.com.unigran.DTO.EstadoDTO;
 import br.com.unigran.model.Estado;
 import br.com.unigran.persistencia.EstadoDao;
 import br.com.unigran.persistencia.EstadoImp;
+import java.util.List;
 
 /**
  *
@@ -25,6 +26,21 @@ public class EstadoController extends GenericoController<Estado, EstadoDTO>{
     @Override
     protected Estado builderEntity(EstadoDTO dto) {
         return dto.builder();
+    }
+
+    @Override
+    public String[] getTitulosColunas() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public Object[] getDados(EstadoDTO dto) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public List getListaDados() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }

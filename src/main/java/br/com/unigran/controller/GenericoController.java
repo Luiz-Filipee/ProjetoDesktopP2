@@ -5,6 +5,7 @@
 package br.com.unigran.controller;
 
 import br.com.unigran.persistencia.Dao;
+import java.util.List;
 
 /**
  *
@@ -30,6 +31,9 @@ public abstract class GenericoController<T, DTO> {
         getDao().remove(builderEntity(dto));
     }
     
-    
- 
+   public abstract String[] getTitulosColunas();//colunas matriz
+
+    public abstract Object[] getDados(DTO dto);//array matriz
+
+    public abstract List getListaDados();//lista de dados 
 }

@@ -8,6 +8,7 @@ import br.com.unigran.DTO.ProntuarioDTO;
 import br.com.unigran.model.Prontuario;
 import br.com.unigran.persistencia.ProntuarioDao;
 import br.com.unigran.persistencia.ProntuarioImp;
+import java.util.List;
 
 /**
  *
@@ -25,6 +26,21 @@ public class ProntuarioController extends GenericoController<Prontuario, Prontua
     @Override
     protected Prontuario builderEntity(ProntuarioDTO dto) {
         return dto.builder();
+    }
+
+    @Override
+    public String[] getTitulosColunas() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public Object[] getDados(ProntuarioDTO dto) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public List getListaDados() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }

@@ -8,9 +8,10 @@ import br.com.unigran.DTO.DentistaDTO;
 import br.com.unigran.model.Dentista;
 import br.com.unigran.persistencia.DentistaDao;
 import br.com.unigran.persistencia.DentistaImp;
+import java.util.List;
 
 
-public class DentistaController extends GenericoController<Dentista, DentistaDTO>{
+public class DentistaController extends GenericoController<Dentista, DentistaDTO> implements ControllerList<DentistaDTO>{
     
     private final DentistaDao dentistaDao = new DentistaImp();
    
@@ -22,6 +23,28 @@ public class DentistaController extends GenericoController<Dentista, DentistaDTO
     @Override
     protected Dentista builderEntity(DentistaDTO dto) {
         return dto.builder();
+    }
+    
+    @Override
+    public String[] getTitulosColunas() {
+        return new String[]{"id", "Nome"};
+    }
+    
+    @Override
+    public Object[] getDados(DentistaDTO o) {
+        DentistaDTO dto = (DentistaDTO) o;
+        return new Object[]{dto.id, dto.nomeDentista};
+    }
+    
+    @Override
+    public List getListaDados() {
+        List<Dentista> dados = dentistaDao.listaDentistas();
+        DentistaDTO dentistaDTO = new DentistaDTO();
+        return dentistaDTO.getListaDados(dados);
+    }
+
+    public DentistaDTO buscaPorNome(String text) {
+        return dentistaDao.buscaPorNome(text);
     }
     
 }
