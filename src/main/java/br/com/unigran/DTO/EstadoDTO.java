@@ -10,7 +10,7 @@ import br.com.unigran.model.Estado;
  *
  * @author user
  */
-public class EstadoDTO extends GenericoDTO<Estado>{
+public abstract class EstadoDTO extends GenericoDTO<Estado>{
 
     @Override
     public Estado builder() {

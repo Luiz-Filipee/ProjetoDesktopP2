@@ -5,11 +5,14 @@
 package br.com.unigran.DTO;
 
 import br.com.unigran.model.Login;
+import java.util.List;
+import lombok.NoArgsConstructor;
 
 /**
  *
  * @author user
  */
+@NoArgsConstructor
 public class LoginDTO extends GenericoDTO<Login>{
     
     public Long id;
@@ -17,6 +20,13 @@ public class LoginDTO extends GenericoDTO<Login>{
     public String senha;
     public FuncaoDTO funcao;
     
+    
+    public LoginDTO(Login login) {
+        this.id = login.getId();
+        this.loginUsername = login.getLogin();
+        this.senha = login.getSenha();
+    }
+
     @Override
     public Login builder(){
         Login login = new Login();
@@ -28,5 +38,27 @@ public class LoginDTO extends GenericoDTO<Login>{
         }
         return login;
     }
+
+    @Override
+    public List getListaDados(List<Login> dados) {
+        return List.of();
+    }
+
+    @Override
+    public Object converte(Login l) {
+        LoginDTO dto = new LoginDTO();
+        dto.id = l.getId();
+        dto.loginUsername = l.getLogin();
+        dto.senha = l.getSenha();
+//        dto.funcao = l.getFuncao();
+        return dto;
+    }
+
+    @Override
+    public String toString() {
+        return "LoginDTO{" + "id=" + id + ", loginUsername=" + loginUsername + ", senha=" + senha + ", funcao=" + funcao + '}';
+    }
+    
+    
     
 }

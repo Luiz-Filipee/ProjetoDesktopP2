@@ -10,7 +10,7 @@ import br.com.unigran.model.Contato;
  *
  * @author user
  */
-public class ContatoDTO extends GenericoDTO<Contato>{
+public abstract class ContatoDTO extends GenericoDTO<Contato>{
     
     public String email;
     public String numeroContato1;

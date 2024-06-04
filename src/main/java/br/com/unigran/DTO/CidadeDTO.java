@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author user
  */
-public class CidadeDTO extends GenericoDTO<Cidade>{
+public abstract class CidadeDTO extends GenericoDTO<Cidade>{
     
    
     private EstadoDTO estado;

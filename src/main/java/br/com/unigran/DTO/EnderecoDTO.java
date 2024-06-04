@@ -10,7 +10,7 @@ import br.com.unigran.model.Endereco;
  *
  * @author user
  */
-public class EnderecoDTO extends GenericoDTO<Endereco>{
+public abstract class EnderecoDTO extends GenericoDTO<Endereco>{
     
     private String rua;
     private String estado;

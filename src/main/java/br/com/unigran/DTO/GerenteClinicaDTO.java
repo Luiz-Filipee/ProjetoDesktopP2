@@ -13,8 +13,9 @@ import java.util.List;
  *
  * @author user
  */
-public class GerenteClinicaDTO extends GenericoDTO<GerenteClinica>{
+public abstract class GerenteClinicaDTO extends GenericoDTO<GerenteClinica>{
     
+    public Long id;
     public String nome;
     public LoginDTO login;
     public List<MaterialDTO> materias;
@@ -22,6 +23,7 @@ public class GerenteClinicaDTO extends GenericoDTO<GerenteClinica>{
     @Override
     public GerenteClinica builder() {
         GerenteClinica gerenteClinica = new GerenteClinica();
+        gerenteClinica.setId(id);
         gerenteClinica.setNome(this.nome);
         if(login != null){
             gerenteClinica.setLogin(login.builder());

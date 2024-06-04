@@ -10,7 +10,7 @@ import br.com.unigran.model.Material;
  *
  * @author user
  */
-public class MaterialDTO extends GenericoDTO<Material>{
+public abstract class MaterialDTO extends GenericoDTO<Material>{
     
     public String nome;
     public int quantidade;

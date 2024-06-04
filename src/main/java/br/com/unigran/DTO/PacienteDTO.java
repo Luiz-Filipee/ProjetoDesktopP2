@@ -6,10 +6,14 @@ import br.com.unigran.model.Consulta;
 import br.com.unigran.model.Paciente;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
 public class PacienteDTO extends GenericoDTO<Paciente>{
     
+    public Long id;
     public String nome;
     public String cpf;
     public Date dataNascimento;
@@ -21,11 +25,16 @@ public class PacienteDTO extends GenericoDTO<Paciente>{
     public List<ConsultaDTO> consultas;
     public List<AgendamentoDTO> agendamentos;
     public EnderecoDTO endereco;
+
+    public PacienteDTO(Paciente paciente) {
+        this.id = paciente.getId();
+    }
     
     
     @Override
     public Paciente builder(){
         Paciente paciente = new Paciente();
+        paciente.setId(this.id);
         paciente.setNome(this.nome);
         paciente.setCpf(this.cpf);
         paciente.setDataNascimento(this.dataNascimento);
@@ -57,4 +66,29 @@ public class PacienteDTO extends GenericoDTO<Paciente>{
         }
         return paciente;
     }
+    
+    @Override
+    public List getListaDados(List<Paciente> dados) {
+        List dadosDTO = new LinkedList();
+        for (Paciente dado : dados) {
+            dadosDTO.add(converte(dado));
+        }
+        return dadosDTO;
+    }
+    
+    @Override
+    public Object converte(Paciente paciente) {
+        PacienteDTO dto= new PacienteDTO();
+        dto.nome = paciente.getNome();
+        dto.email = paciente.getEmail();
+        dto.cpf = paciente.getCpf();
+        return dto;
+    }
+
+    @Override
+    public String toString() {
+        return "PacienteDTO{" + "nome=" + nome + ", cpf=" + cpf + ", dataNascimento=" + dataNascimento + '}';
+    }
+    
+    
 }

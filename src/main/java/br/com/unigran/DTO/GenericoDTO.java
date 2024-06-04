@@ -4,11 +4,16 @@
  */
 package br.com.unigran.DTO;
 
+import java.util.List;
+
 /**
  *
  * @author user
+ * @param <T>
  */
 public abstract class GenericoDTO<T> {
     
     public abstract T builder();
+    public abstract List getListaDados(List<T> dados);
+    public abstract Object converte(T t);
 }

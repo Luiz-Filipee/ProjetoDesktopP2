@@ -6,10 +6,12 @@ package br.com.unigran.DTO;
 
 import br.com.unigran.model.Consulta;
 import java.io.File;
+import java.util.LinkedList;
+import java.util.List;
 
 public class ConsultaDTO extends GenericoDTO<Consulta>{
     
-   
+    public Long id; 
     public PacienteDTO paciente;
     public DentistaDTO dentista;
     public String observacoes;
@@ -20,6 +22,7 @@ public class ConsultaDTO extends GenericoDTO<Consulta>{
     @Override
     public Consulta builder() {
         Consulta consulta = new Consulta();
+        consulta.setId(this.id);
         consulta.setObservacoes(this.observacoes);
         consulta.setAnexos(this.anexos);
         consulta.setValor(this.valor);
@@ -34,5 +37,26 @@ public class ConsultaDTO extends GenericoDTO<Consulta>{
         }
         return consulta;
     }
+
+    @Override
+    public List getListaDados(List<Consulta> dados) {
+        List dadosDTO = new LinkedList();
+        for (Consulta dado : dados) {
+            dadosDTO.add(converte(dado));
+        }
+        return dadosDTO;
+    }
+    
+    @Override
+    public Object converte(Consulta consulta) {
+
+        ConsultaDTO dto = new ConsultaDTO();
+        dto.id = consulta.getId();
+        dto.valor = consulta.getValor();
+        return dto;
+    }
+
+   
+
     
 }

@@ -10,7 +10,7 @@ import br.com.unigran.model.Prontuario;
  *
  * @author user
  */
-public class ProntuarioDTO extends GenericoDTO<Prontuario>{
+public abstract class ProntuarioDTO extends GenericoDTO<Prontuario>{
     
     public String historico;
     public PacienteDTO paciente;

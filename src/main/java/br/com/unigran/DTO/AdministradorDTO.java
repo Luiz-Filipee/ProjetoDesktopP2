@@ -4,7 +4,7 @@ package br.com.unigran.DTO;
 import br.com.unigran.model.Administrador;
 
 
-public class AdministradorDTO extends GenericoDTO<Administrador>{
+public abstract class AdministradorDTO extends GenericoDTO<Administrador>{
     public String nome;
     private LoginDTO login;
     

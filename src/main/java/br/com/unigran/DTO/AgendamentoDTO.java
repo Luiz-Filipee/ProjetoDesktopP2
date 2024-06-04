@@ -3,7 +3,12 @@ package br.com.unigran.DTO;
 
 import br.com.unigran.model.Agendamento;
 import java.util.Date;
+import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
+@AllArgsConstructor
 public class AgendamentoDTO extends GenericoDTO<Agendamento>{
     
     public String horario;
@@ -31,5 +36,15 @@ public class AgendamentoDTO extends GenericoDTO<Agendamento>{
             agendamento.setConsulta(consulta.builder());
         }
         return agendamento;
+    }
+
+    @Override
+    public List getListaDados(List<Agendamento> dados) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public Object converte(Agendamento t) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
