@@ -4,6 +4,7 @@
  */
 package br.com.unigran.persistencia;
 
+import br.com.unigran.DTO.ProntuarioDTO;
 import br.com.unigran.model.Consulta;
 import br.com.unigran.model.Prontuario;
 import java.util.List;
@@ -26,6 +27,11 @@ public class ProntuarioImp extends ProntuarioDao{
     public List<Consulta> getHistorico() {
         return em.createNativeQuery("SELECT * FROM Consulta", Consulta.class)
                 .getResultList();
+    }
+
+    @Override
+    public ProntuarioDTO buscaPorId(Long idBusca) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }

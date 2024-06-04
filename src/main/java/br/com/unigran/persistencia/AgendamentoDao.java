@@ -4,6 +4,7 @@
  */
 package br.com.unigran.persistencia;
 
+import br.com.unigran.DTO.AgendamentoDTO;
 import br.com.unigran.model.Agendamento;
 import br.com.unigran.model.Consulta;
 
@@ -16,5 +17,7 @@ public abstract class AgendamentoDao extends Dao{
     public abstract void marcarConsulta(Agendamento agendamento);
     
     public abstract void cancelarConsulta(Consulta consulta);
+    
+    public abstract AgendamentoDTO buscaPorNome(Long idBusca);
 
 }

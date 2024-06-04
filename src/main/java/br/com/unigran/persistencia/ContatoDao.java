@@ -4,8 +4,13 @@
  */
 package br.com.unigran.persistencia;
 
+import br.com.unigran.DTO.ContatoDTO;
+
 /**
  *
  * @author user
  */
-public abstract class ContatoDao extends Dao{}
+public abstract class ContatoDao extends Dao{
+
+    public abstract ContatoDTO buscaPorEmail(String email);
+}

@@ -4,6 +4,7 @@
  */
 package br.com.unigran.persistencia;
 
+import br.com.unigran.DTO.ProntuarioDTO;
 import br.com.unigran.model.Consulta;
 import br.com.unigran.model.Prontuario;
 import java.util.List;
@@ -17,4 +18,6 @@ public abstract class ProntuarioDao extends Dao{
     public abstract Prontuario getProntuario(Long id);
     
     public abstract List<Consulta> getHistorico();
+
+    public abstract ProntuarioDTO buscaPorId(Long idBusca);
 }

@@ -4,8 +4,12 @@
  */
 package br.com.unigran.persistencia;
 
+import br.com.unigran.DTO.AgendamentoDTO;
+import br.com.unigran.DTO.DentistaDTO;
 import br.com.unigran.model.Agendamento;
 import br.com.unigran.model.Consulta;
+import br.com.unigran.model.Dentista;
+import javax.persistence.NoResultException;
 
 /**
  *
@@ -29,6 +33,18 @@ public class AgendamentoImp extends AgendamentoDao{
         em.createNativeQuery("DELETE FROM Consulta WHERE id = :idConsulta ")
                 .setParameter("idConsulta", consulta.getId())
                 .executeUpdate();
+    }
+
+    @Override
+    public AgendamentoDTO buscaPorNome(Long idBusca) {
+         try {
+            Agendamento agendamento = em.createQuery("SELECT l FROM Agendamento l WHERE l.id = :idBusca", Agendamento.class)
+                            .setParameter("idBusca", idBusca)
+                            .getSingleResult();
+            return new AgendamentoDTO(agendamento); 
+        } catch (NoResultException e) {
+            return null; 
+        }    
     }
    
     
