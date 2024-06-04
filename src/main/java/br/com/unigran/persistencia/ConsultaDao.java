@@ -12,5 +12,5 @@ public abstract class ConsultaDao extends Dao {
     
     public abstract void registrarConsulta(Consulta consulta);
 
-    public abstract List<ConsultaDTO> listar();
+    public abstract List<Consulta> listar();
 }

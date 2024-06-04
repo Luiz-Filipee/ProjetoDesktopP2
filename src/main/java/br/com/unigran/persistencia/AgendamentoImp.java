@@ -30,5 +30,6 @@ public class AgendamentoImp extends AgendamentoDao{
                 .setParameter("idConsulta", consulta.getId())
                 .executeUpdate();
     }
+   
     
 }

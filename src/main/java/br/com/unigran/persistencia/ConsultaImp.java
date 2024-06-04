@@ -32,7 +32,7 @@ public class ConsultaImp extends ConsultaDao{
     }
 
     @Override
-    public List<ConsultaDTO> listar() {
+    public List<Consulta> listar() {
         return em.createNativeQuery("SELECT * FROM Consulta")
                 .getResultList();
     }

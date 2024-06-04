@@ -4,8 +4,12 @@
  */
 package br.com.unigran.persistencia;
 
+import br.com.unigran.DTO.LoginDTO;
+import br.com.unigran.DTO.PacienteDTO;
+import br.com.unigran.model.Login;
 import br.com.unigran.model.Paciente;
 import java.util.List;
+import javax.persistence.NoResultException;
 
 /**
  *
@@ -14,10 +18,15 @@ import java.util.List;
 public class PacienteImp extends PacienteDao{
 
     @Override
-    public Paciente buscaPaciente(String filtro) {
-        return (Paciente) em.createNativeQuery("SELECT * FROM Paciente WHERE nome = :filtro", Paciente.class)
-                .setParameter(filtro, "filtro")
-                .getSingleResult();
+    public PacienteDTO buscaPaciente(String filtro) {
+         try {
+            Paciente paciente = em.createQuery("SELECT l FROM Paciente l WHERE l.nome = :filtro", Paciente.class)
+                            .setParameter("filtro", filtro)
+                            .getSingleResult();
+            return new PacienteDTO(paciente); 
+        } catch (NoResultException e) {
+            return null; 
+        }
     }
 
     @Override
@@ -26,4 +35,5 @@ public class PacienteImp extends PacienteDao{
                 .getResultList();
     }
     
+   
 }

@@ -4,7 +4,10 @@
  */
 package br.com.unigran.persistencia;
 
+import br.com.unigran.DTO.RecepcionistaDTO;
 import br.com.unigran.model.Consulta;
+import br.com.unigran.model.Recepcionista;
+import java.util.List;
 
 /**
  *
@@ -13,4 +16,8 @@ import br.com.unigran.model.Consulta;
 public abstract class RecepcionistaDao extends Dao{
     
     public abstract void registraPagamento(Consulta consulta);
+    
+    public abstract List<Recepcionista> listar();
+
+    public abstract RecepcionistaDTO buscaPorNome(String text);
 }

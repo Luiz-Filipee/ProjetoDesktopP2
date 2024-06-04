@@ -4,6 +4,7 @@
  */
 package br.com.unigran.persistencia;
 
+import br.com.unigran.DTO.LoginDTO;
 import java.util.List;
 
 /**
@@ -13,4 +14,6 @@ import java.util.List;
 public abstract class LoginDao extends Dao{
     
     public abstract List listarLogins();
+
+    public abstract LoginDTO autenticaUsuario(String usuario, String senha);
 }

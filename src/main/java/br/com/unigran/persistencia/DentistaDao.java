@@ -4,6 +4,7 @@
  */
 package br.com.unigran.persistencia;
 
+import br.com.unigran.DTO.DentistaDTO;
 import br.com.unigran.model.Dentista;
 import java.util.List;
 
@@ -14,4 +15,6 @@ import java.util.List;
  public abstract class DentistaDao extends Dao{
      
     public abstract List<Dentista> listaDentistas();
+    
+    public abstract DentistaDTO buscaPorNome(String nome);
 }

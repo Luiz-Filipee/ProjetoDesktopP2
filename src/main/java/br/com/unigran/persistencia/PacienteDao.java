@@ -4,6 +4,7 @@
  */
 package br.com.unigran.persistencia;
 
+import br.com.unigran.DTO.PacienteDTO;
 import br.com.unigran.model.Paciente;
 import java.util.List;
 
@@ -13,7 +14,7 @@ import java.util.List;
  */
 public abstract class PacienteDao extends Dao{
     
-    public abstract Paciente buscaPaciente(String filtro);
+    public abstract PacienteDTO buscaPaciente(String filtro);
     
     public abstract List<Paciente> listaPacientes();
    
