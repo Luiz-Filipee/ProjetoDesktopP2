@@ -4,20 +4,33 @@
  */
 package br.com.unigran.views.app;
 
+import br.com.unigran.DTO.DentistaDTO;
 import br.com.unigran.DTO.FuncaoDTO;
 import br.com.unigran.DTO.LoginDTO;
+import br.com.unigran.DTO.PacienteDTO;
+import br.com.unigran.controller.ConsultaController;
 import br.com.unigran.controller.DentistaController;
 import br.com.unigran.controller.FuncaoController;
 import br.com.unigran.controller.LoginController;
-import br.com.unigran.views.cadastro.CadastroDentista;
+import br.com.unigran.controller.PacienteController;
+import br.com.unigran.controller.RecepcionistaController;
+import br.com.unigran.model.Funcao;
+import br.com.unigran.views.cadastro.CadastroConsultaPanel;
+import br.com.unigran.views.cadastro.CadastroDentistaPanel;
+import br.com.unigran.views.cadastro.CadastroFuncionarioPanel;
+import br.com.unigran.views.cadastro.CadastroGerentePanel;
+import br.com.unigran.views.cadastro.CadastroPacientePanel;
 import br.com.unigran.views.listagem.Listagem;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author user
  */
-public class TelaPrincipal extends javax.swing.JFrame {
+public class TelaPrincipal extends JFrame {
 
     /**
      * Creates new form TelaPrincipal
@@ -51,11 +64,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         campoSenha = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        funcoesComboBox = new javax.swing.JComboBox<>();
-        jLabel5 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         BtnSair = new javax.swing.JButton();
-        btnLogin = new javax.swing.JButton();
+        btnLogin1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -129,10 +140,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jLabel4.setText("Login");
 
-        funcoesComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione a funcao", "Dentista", "Paciente", "Recepcionista", "Gerente" }));
-
-        jLabel5.setText("Funcao");
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -146,14 +153,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
                         .addGap(94, 94, 94)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel5))
+                            .addComponent(jLabel3))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(funcoesComboBox, 0, 175, Short.MAX_VALUE)
-                            .addComponent(campoUsuario)
+                            .addComponent(campoUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
                             .addComponent(campoSenha))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,24 +168,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(campoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(16, 16, 16)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addGap(0, 30, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(funcoesComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         BtnSair.setText("Sair");
 
-        btnLogin.setText("Login");
-        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+        btnLogin1.setText("Login");
+        btnLogin1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLoginActionPerformed(evt);
+                btnLogin1ActionPerformed(evt);
             }
         });
 
@@ -190,10 +190,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnSair)
+                .addComponent(BtnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnLogin)
-                .addGap(40, 40, 40))
+                .addComponent(btnLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,8 +201,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnSair)
-                    .addComponent(btnLogin))
-                .addContainerGap(12, Short.MAX_VALUE))
+                    .addComponent(btnLogin1))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -228,22 +228,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void BtnFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnFuncionarioActionPerformed
         // TODO add your handling code here:
-//        new Listagem(this, new CadastroCliente(), new RecepcionistaController()).setVisible(true);
+        new Listagem(this, new CadastroFuncionarioPanel(), new RecepcionistaController()).setVisible(true);
     }//GEN-LAST:event_BtnFuncionarioActionPerformed
 
     private void BtnDentistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDentistaActionPerformed
         // TODO add your handling code here:
-        new Listagem(this, new CadastroDentista(), new DentistaController()).setVisible(true);
+        new Listagem(this, new CadastroDentistaPanel(), new DentistaController()).setVisible(true);
     }//GEN-LAST:event_BtnDentistaActionPerformed
 
     private void BtnPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPacienteActionPerformed
         // TODO add your handling code here:
-//        new Listagem(this, new CadastroCliente(), new PacienteController()).setVisible(true);
+        new Listagem(this, new CadastroPacientePanel(), new PacienteController()).setVisible(true);
     }//GEN-LAST:event_BtnPacienteActionPerformed
 
     private void BtnConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnConsultasActionPerformed
         // TODO add your handling code here:
-//        new Listagem(this, new CadastroCliente(), new ConsultaController()).setVisible(true);
+        new Listagem(this, new CadastroConsultaPanel(), new ConsultaController()).setVisible(true);
     }//GEN-LAST:event_BtnConsultasActionPerformed
 
     
@@ -255,7 +255,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         campoSenha.setText("");
     }
     
-    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+    private void btnLogin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogin1ActionPerformed
         // TODO add your handling code here:
         loginController = new LoginController();
         String usuario = campoUsuario.getText();
@@ -264,11 +264,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         if(usuarioAutenticado != null){
             new TelaAgendamento().setVisible(true);
               JOptionPane.showMessageDialog(this, "Usuario logado com sucesso");
-              dispose();
+              resetaCampos();
         }else{
                JOptionPane.showMessageDialog(this, "Usuario nao encontrado");
         }
-    }//GEN-LAST:event_btnLoginActionPerformed
+    }//GEN-LAST:event_btnLogin1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -281,15 +281,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton BtnFuncionario;
     private javax.swing.JButton BtnPaciente;
     private javax.swing.JButton BtnSair;
-    private javax.swing.JButton btnLogin;
+    private javax.swing.JButton btnLogin1;
     private javax.swing.JTextField campoSenha;
     private javax.swing.JTextField campoUsuario;
-    private javax.swing.JComboBox<String> funcoesComboBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
