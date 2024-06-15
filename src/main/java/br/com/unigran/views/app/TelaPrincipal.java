@@ -4,25 +4,18 @@
  */
 package br.com.unigran.views.app;
 
-import br.com.unigran.DTO.DentistaDTO;
-import br.com.unigran.DTO.FuncaoDTO;
 import br.com.unigran.DTO.LoginDTO;
-import br.com.unigran.DTO.PacienteDTO;
 import br.com.unigran.controller.ConsultaController;
 import br.com.unigran.controller.DentistaController;
 import br.com.unigran.controller.FuncaoController;
 import br.com.unigran.controller.LoginController;
 import br.com.unigran.controller.PacienteController;
 import br.com.unigran.controller.RecepcionistaController;
-import br.com.unigran.model.Funcao;
 import br.com.unigran.views.cadastro.CadastroConsultaPanel;
 import br.com.unigran.views.cadastro.CadastroDentistaPanel;
 import br.com.unigran.views.cadastro.CadastroFuncionarioPanel;
-import br.com.unigran.views.cadastro.CadastroGerentePanel;
 import br.com.unigran.views.cadastro.CadastroPacientePanel;
 import br.com.unigran.views.listagem.Listagem;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -59,14 +52,10 @@ public class TelaPrincipal extends JFrame {
         BtnConsultas = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        campoUsuario = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        campoSenha = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         BtnSair = new javax.swing.JButton();
-        btnLogin1 = new javax.swing.JButton();
+        BtnAgendamento = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -113,12 +102,10 @@ public class TelaPrincipal extends JFrame {
                         .addComponent(BtnDentista, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BtnPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addComponent(BtnConsultas))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                    .addComponent(jLabel1))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,53 +121,36 @@ public class TelaPrincipal extends JFrame {
                 .addGap(16, 16, 16))
         );
 
-        jLabel2.setText("Usuario");
-
-        jLabel3.setText("Senha");
-
-        jLabel4.setText("Login");
+        jLabel4.setText("Bem-Vindo ao Sistema de Gerenciamento de Clinicas Odontológicas");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel4))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(campoUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
-                            .addComponent(campoSenha))))
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addComponent(jLabel4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(44, Short.MAX_VALUE)
                 .addComponent(jLabel4)
-                .addGap(3, 3, 3)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(16, 16, 16)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addGap(37, 37, 37))
         );
 
         BtnSair.setText("Sair");
-
-        btnLogin1.setText("Login");
-        btnLogin1.addActionListener(new java.awt.event.ActionListener() {
+        BtnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogin1ActionPerformed(evt);
+                BtnSairActionPerformed(evt);
+            }
+        });
+
+        BtnAgendamento.setText("Agendamento");
+        BtnAgendamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAgendamentoActionPerformed(evt);
             }
         });
 
@@ -189,11 +159,11 @@ public class TelaPrincipal extends JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(93, 93, 93)
+                .addComponent(BtnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                .addComponent(BtnAgendamento)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,7 +171,7 @@ public class TelaPrincipal extends JFrame {
                 .addGap(14, 14, 14)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnSair)
-                    .addComponent(btnLogin1))
+                    .addComponent(BtnAgendamento))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
@@ -247,28 +217,17 @@ public class TelaPrincipal extends JFrame {
     }//GEN-LAST:event_BtnConsultasActionPerformed
 
     
-    private LoginController loginController;
-    private FuncaoController funcaoController;
+  
     
-    private void resetaCampos(){
-        campoUsuario.setText("");
-        campoSenha.setText("");
-    }
-    
-    private void btnLogin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogin1ActionPerformed
+    private void BtnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSairActionPerformed
         // TODO add your handling code here:
-        loginController = new LoginController();
-        String usuario = campoUsuario.getText();
-        String senha = campoSenha.getText();
-        LoginDTO usuarioAutenticado = loginController.autenticaUsuario(usuario, senha);
-        if(usuarioAutenticado != null){
-            new TelaAgendamento().setVisible(true);
-              JOptionPane.showMessageDialog(this, "Usuario logado com sucesso");
-              resetaCampos();
-        }else{
-               JOptionPane.showMessageDialog(this, "Usuario nao encontrado");
-        }
-    }//GEN-LAST:event_btnLogin1ActionPerformed
+        dispose();
+    }//GEN-LAST:event_BtnSairActionPerformed
+
+    private void BtnAgendamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgendamentoActionPerformed
+        // TODO add your handling code here:
+        new TelaLogin().setVisible(true);
+    }//GEN-LAST:event_BtnAgendamentoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -276,17 +235,13 @@ public class TelaPrincipal extends JFrame {
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnAgendamento;
     private javax.swing.JButton BtnConsultas;
     private javax.swing.JButton BtnDentista;
     private javax.swing.JButton BtnFuncionario;
     private javax.swing.JButton BtnPaciente;
     private javax.swing.JButton BtnSair;
-    private javax.swing.JButton btnLogin1;
-    private javax.swing.JTextField campoSenha;
-    private javax.swing.JTextField campoUsuario;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
