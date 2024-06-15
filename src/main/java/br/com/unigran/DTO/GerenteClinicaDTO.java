@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author user
  */
-public abstract class GerenteClinicaDTO extends GenericoDTO<GerenteClinica>{
+public class GerenteClinicaDTO extends GenericoDTO<GerenteClinica>{
     
     public Long id;
     public String nome;
@@ -36,6 +36,16 @@ public abstract class GerenteClinicaDTO extends GenericoDTO<GerenteClinica>{
             gerenteClinica.setMaterias(materialEntidades);
         }
         return gerenteClinica;
+    }
+
+    @Override
+    public List getListaDados(List<GerenteClinica> dados) {
+           return null;
+    }
+
+    @Override
+    public Object converte(GerenteClinica t) {
+           return null;
     }
     
 }

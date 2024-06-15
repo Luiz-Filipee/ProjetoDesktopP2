@@ -27,13 +27,13 @@ public class PacienteController extends GenericoController<Paciente, PacienteDTO
     
     @Override
     public String[] getTitulosColunas() {
-        return new String[]{"id", "Nome"};
+        return new String[]{"id", "Nome" ,"Cpf","Nascimento"};
     }
     
     @Override
     public Object[] getDados(PacienteDTO o) {
         PacienteDTO dto = (PacienteDTO) o;
-        return new Object[]{dto.nome, dto.cpf, dto.email, dto.contato};
+        return new Object[]{dto.id, dto.nome, dto.cpf, dto.dataNascimento};
     }
     
     @Override

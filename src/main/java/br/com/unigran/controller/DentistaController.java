@@ -9,9 +9,10 @@ import br.com.unigran.model.Dentista;
 import br.com.unigran.persistencia.DentistaDao;
 import br.com.unigran.persistencia.DentistaImp;
 import java.util.List;
+import lombok.AllArgsConstructor;
 
-
-public class DentistaController extends GenericoController<Dentista, DentistaDTO> implements ControllerList<DentistaDTO>{
+@AllArgsConstructor
+public class DentistaController extends GenericoController<Dentista, DentistaDTO>{
     
     private final DentistaDao dentistaDao = new DentistaImp();
    

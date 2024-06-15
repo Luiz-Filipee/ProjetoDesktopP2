@@ -3,6 +3,7 @@ package br.com.unigran.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,15 +31,15 @@ public class Agendamento implements Serializable {
     private Date dataAgendamento;
     
     @JoinColumn(name = "paciente_id")
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Paciente paciente;
     
     @JoinColumn(name = "dentista_id")
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Dentista dentista;
     
     @JoinColumn(name = "recepcionista_id")
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Recepcionista recepcionista;
     
     @OneToOne(mappedBy = "agendamento")

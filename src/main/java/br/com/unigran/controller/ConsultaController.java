@@ -30,13 +30,13 @@ public class ConsultaController extends GenericoController<Consulta, ConsultaDTO
     
     @Override
     public String[] getTitulosColunas() {
-        return new String[]{"id", "Nome"};
+        return new String[]{"id", "valor", "paciente", "dentista", "agendamento"};
     }
     
     @Override
     public Object[] getDados(ConsultaDTO o) {
         ConsultaDTO dto = (ConsultaDTO) o;
-        return new Object[]{dto.dentista, dto.paciente, dto.valor};
+        return new Object[]{dto.id, dto.valor ,dto.paciente, dto.dentista, dto.agendamento};
     }
     
     @Override

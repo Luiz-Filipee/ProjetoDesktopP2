@@ -24,7 +24,7 @@ public class Login implements Serializable {
     private String senha;
     
     @JoinColumn(name = "funcao_id")
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Funcao funcao;
     
     

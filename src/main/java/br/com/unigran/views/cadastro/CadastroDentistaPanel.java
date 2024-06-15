@@ -34,54 +34,46 @@ public class CadastroDentistaPanel extends PainelInterface {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
+        jSpinner1 = new javax.swing.JSpinner();
         jLabel2 = new javax.swing.JLabel();
         campoUsuario = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        campoNome1 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        campoSenha = new javax.swing.JTextField();
+        campoIdUsuario = new javax.swing.JTextField();
+
+        java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
+        layout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
+        layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
+        layout.columnWeights = new double[] {0.0};
+        layout.rowWeights = new double[] {0.0};
+        setLayout(layout);
 
         jLabel2.setText("Nome");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        add(jLabel2, gridBagConstraints);
+
+        campoUsuario.setPreferredSize(new java.awt.Dimension(150, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 7;
+        add(campoUsuario, gridBagConstraints);
 
         jLabel1.setText("Usuario");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        add(jLabel1, gridBagConstraints);
 
-        jLabel3.setText("Senha");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(campoNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(19, 19, 19))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(campoNome1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(23, Short.MAX_VALUE))
-        );
+        campoIdUsuario.setPreferredSize(new java.awt.Dimension(150, 22));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 7;
+        add(campoIdUsuario, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private DentistaDTO dentistaDTO;
@@ -98,23 +90,17 @@ public class CadastroDentistaPanel extends PainelInterface {
          if( dentistaDTO == null )
             dentistaDTO= new DentistaDTO();
          
-        String username = campoNome1.getText();
-        String password = campoSenha.getText();
-                   
-        LoginDTO loginCadastrado = new LoginDTO();
-        
-        loginCadastrado.loginUsername = username;
-        loginCadastrado.senha = password;
-        
-        FuncaoDTO funcaoDTO = funcaoController.buscarPorNome("Dentista");
-        
-        loginCadastrado.funcao = funcaoDTO;
+        String username = campoUsuario.getText();
+        String id = campoIdUsuario.getText();
+                  
+        LoginDTO loginBuscado = loginController.buscaIdLogin(id);
+                        
         dentistaDTO.nomeDentista = campoUsuario.getText();
-        dentistaDTO.login = loginCadastrado;
+        dentistaDTO.login = loginBuscado;
         
         try{
-           loginController.salvar(loginCadastrado);
            dentistaController.salvar(dentistaDTO);
+            System.out.println(dentistaDTO);
         }catch(Exception ex){
             ex.getMessage();
         }
@@ -130,11 +116,10 @@ public class CadastroDentistaPanel extends PainelInterface {
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField campoNome1;
-    private javax.swing.JTextField campoSenha;
+    private javax.swing.JTextField campoIdUsuario;
     private javax.swing.JTextField campoUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JSpinner jSpinner1;
     // End of variables declaration//GEN-END:variables
 }

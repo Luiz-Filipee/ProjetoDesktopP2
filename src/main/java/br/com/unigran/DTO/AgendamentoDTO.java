@@ -11,16 +11,31 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class AgendamentoDTO extends GenericoDTO<Agendamento>{
     
+    public Long id;
     public String horario;
     public Date dataAgendamento;
     public PacienteDTO paciente;
     public DentistaDTO dentista;
     public RecepcionistaDTO recepcionista;
     public ConsultaDTO consulta;
+
+    public AgendamentoDTO(Agendamento agendamento) {
+        this.id = agendamento.getId();
+    }
+    
+    public AgendamentoDTO(String horario, Date data, PacienteDTO p, DentistaDTO d, RecepcionistaDTO r, ConsultaDTO c){
+        this.horario = horario;
+        this.dataAgendamento = data;
+        this.paciente = p;
+        this.dentista = d;
+        this.consulta = c;
+        this.recepcionista = r;
+    }
     
     @Override
     public Agendamento builder(){
         Agendamento agendamento = new Agendamento();
+        agendamento.setId(this.id);
         agendamento.setHorario(this.horario);
         agendamento.setDataAgendamento(this.dataAgendamento);
         if(paciente != null){

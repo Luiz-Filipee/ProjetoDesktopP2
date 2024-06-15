@@ -16,4 +16,6 @@ public abstract class LoginDao extends Dao{
     public abstract List listarLogins();
 
     public abstract LoginDTO autenticaUsuario(String usuario, String senha);
+
+    public abstract LoginDTO buscaIdDoLogin(Long id);
 }

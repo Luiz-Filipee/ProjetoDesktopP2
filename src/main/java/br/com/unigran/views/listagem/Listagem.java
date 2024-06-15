@@ -8,16 +8,18 @@ import br.com.unigran.DTO.GenericoDTO;
 import br.com.unigran.controller.GenericoController;
 import br.com.unigran.util.PainelInterface;
 import br.com.unigran.views.cadastro.Cadastro;
+import br.com.unigran.views.cadastro.CadastroPacientePanel;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author user
  */
-public class Listagem extends javax.swing.JFrame {
+public class Listagem extends JFrame {
 
     /**
      * Creates new form Listagem
@@ -26,7 +28,7 @@ public class Listagem extends javax.swing.JFrame {
     private List<GenericoDTO> lista;
     private final GenericoController controller;
     
-    public Listagem(java.awt.Frame parent,PainelInterface interfaceCadastro, GenericoController controller) {
+    public Listagem(java.awt.Frame parent, PainelInterface interfaceCadastro, GenericoController controller) {
         initComponents();
         this.interfaceCadastro = interfaceCadastro;
         this.controller = controller;
@@ -161,12 +163,14 @@ public class Listagem extends javax.swing.JFrame {
 
     private void ButtonNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonNovoActionPerformed
         // TODO add your handling code here:
-        new Cadastro(null, true, interfaceCadastro,controller).setVisible(true);
+        new Cadastro(null, true,interfaceCadastro,controller).setVisible(true);
         atualiza();
     }//GEN-LAST:event_ButtonNovoActionPerformed
 
     private void ButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEditarActionPerformed
         // TODO add your handling code here:
+        new Cadastro(null, true, interfaceCadastro,controller).setVisible(true);
+        atualiza();
     }//GEN-LAST:event_ButtonEditarActionPerformed
 
     private void ButtonRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRemoverActionPerformed

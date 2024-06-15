@@ -32,4 +32,11 @@ public class LoginImp extends LoginDao{
             return null; 
         }
     }
+
+    @Override
+    public LoginDTO buscaIdDoLogin(Long id) {
+        return (LoginDTO) em.createNativeQuery("SELECT id FROM Login WHERE id =: id")
+                .setParameter("id", id)
+                .getSingleResult();
+    }
 }

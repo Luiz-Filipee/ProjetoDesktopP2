@@ -39,10 +39,9 @@ public class DentistaDTO extends GenericoDTO<Dentista>{
     
     @Override
     public Object converte(Dentista dentista) {
-        
         DentistaDTO dto= new DentistaDTO();
-        dto.nomeDentista = dentista.getNome();
         dto.id = dentista.getId();
+        dto.nomeDentista = dentista.getNome();
         return dto;
     }
 }

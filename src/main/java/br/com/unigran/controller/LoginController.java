@@ -39,5 +39,9 @@ public class LoginController extends GenericoController<Login, LoginDTO>{
     public LoginDTO autenticaUsuario(String usuario, String senha) {
         return loginDao.autenticaUsuario(usuario, senha);
     }
+
+    public LoginDTO buscaIdLogin(String id) {
+        return loginDao.buscaIdDoLogin(Long.valueOf(id));
+    }
     
 }
